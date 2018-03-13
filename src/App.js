@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { graphql } from 'react-apollo';
-import gql from 'graphql-tag';
 import Uptime from './Uptime';
 import Hubname from './Hubname';
 import AccessoryList from './AccessoryList';
+import SetHubName from './SetHubName';
 import './App.css';
 
 class App extends Component {
@@ -15,6 +14,7 @@ class App extends Component {
         </header>
         <div className="App-intro">
           <Uptime />
+          <SetHubName />
           <AccessoryList />
         </div>
       </div>
@@ -22,15 +22,4 @@ class App extends Component {
   }
 }
 
-const MyQuery = gql`
-  query MyQuery {
-    system {
-      hubname
-      uptime
-      uptimeDelayed
-    }
-  }
-`;
-
-const MyAppWithData = graphql(MyQuery)(App);
-export default MyAppWithData;
+export default App;
